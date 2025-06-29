@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-backtest-fundamental
+  labels:
+    app: stock-backtest-fundamental
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-backtest-fundamental
+  template:
+    metadata:
+      labels:
+        app: stock-backtest-fundamental
+    spec:
+      containers:
+      - name: stock-backtest-fundamental
+        image: stock-backtest-fundamental:latest
+        ports:
+        - containerPort: 8080
